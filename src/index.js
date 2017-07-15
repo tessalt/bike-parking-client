@@ -1,0 +1,56 @@
+import Map from './map';
+import Navigo from 'navigo';
+import copy from './copy';
+import Splash from './steps/splash';
+import StepOneA from './steps/one-a';
+import StepOneB from './steps/one-b';
+import StepTwo from './steps/two';
+import StepThreeA from './steps/three-a';
+import StepThreeB from './steps/three-b';
+import StepFour from './steps/four';
+import Complete from './steps/complete';
+import Step from './step';
+
+const steps = {
+  splash: Splash,
+  '1a': StepOneA,
+  '1b': StepOneB,
+  '2': StepTwo,
+  '3a': StepThreeA,
+  '3b': StepThreeB,
+  '4': StepFour,
+  complete: Complete,
+}
+
+class Survey {
+  constructor() {
+    this.steps = {};
+    this.router = new Navigo('/', true);
+    this.state = {};
+    this.router.on({
+      'survey/:step': (params, query) => {
+        this.renderStep(params, query)
+      },
+      '*': () => {
+        this.renderHome()
+      },
+    }).resolve();
+  }
+
+  setState(newState) {
+    this.state = Object.assign({}, this.state, newState);
+  }
+
+  renderHome() {
+    this.steps.home = this.steps.home || new Splash(copy.splash, this);
+    this.steps.home.render();
+  }
+
+  renderStep(params, query) {
+    let step = params.step;
+    this.steps[step] = this.steps[step] || new steps[step](copy[step], this);
+    this.steps[step].render();
+  }
+}
+
+new Survey();
