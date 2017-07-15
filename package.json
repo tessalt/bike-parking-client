@@ -4,7 +4,11 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "serve": "http-server",
+    "dev": "concurrently \"npm run watch\" \"npm run serve\""
   },
   "author": "",
   "license": "ISC",
@@ -13,6 +17,8 @@
     "navigo": "^5.2.0"
   },
   "devDependencies": {
+    "concurrently": "^3.5.0",
+    "http-server": "^0.10.0",
     "rollup": "^0.45.2",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
