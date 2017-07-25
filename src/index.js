@@ -1,4 +1,3 @@
-import Map from './map';
 import Navigo from 'navigo';
 import copy from './copy';
 import Splash from './steps/splash';
