@@ -13,7 +13,7 @@ export default class Complete extends Step {
       this.survey.setState({
         email: value
       });
-      console.log(this.survey.state);
+      console.log(JSON.stringify(this.survey.state));
     });
   }
 }

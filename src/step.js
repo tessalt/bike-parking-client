@@ -4,6 +4,8 @@ export default class Step {
     this.router = survey.router;
     this.copy = copy;
     this.el = null;
+    this.error = null;
+    this.message = null;
   }
 
   template({name, title, heading, text}) {
@@ -13,6 +15,8 @@ export default class Step {
         <p class="step-title">${title}</p>
         <h1 class="step-heading">${heading}</h1>
         <p class="step-text">${text}</p>
+        <p id="error"></p>
+        <p id="message"></p>
       </div>
       `
     )
@@ -25,8 +29,21 @@ export default class Step {
   render() {
     this.el = this.el || document.getElementById('render');
     this.el.innerHTML = this.html;
+    this.error = document.getElementById('error');
+    this.message = document.getElementById('message');
     this.bind();
   }
 
-  bind() {}
+  setMessage(text) {
+    this.message = this.message || document.getElementById('message');
+    this.message.textContent = text;
+  }
+
+  setError(text) {
+    this.error = this.error || document.getElementById('error');
+    this.error.textContent = text;
+  }
+
+  bind() {
+  }
 }

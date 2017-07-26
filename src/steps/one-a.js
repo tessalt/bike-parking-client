@@ -24,7 +24,8 @@ export default class StepOne extends Step {
   }
 
   locationAcquired(position) {
-    this.router.navigate(`/survey/1b?lat=${position.coords.latitude}&lng=${position.coords.longitude}&pin=`);
+    this.setMessage('');
+    this.router.navigate(`/survey/1b?lat=${position.coords.latitude}&lng=${position.coords.longitude}`);
   }
   
   locationFailed() {
@@ -33,10 +34,10 @@ export default class StepOne extends Step {
 
   getDeviceLocation() {
     if ('geolocation' in navigator) {
-      console.log('looking');
+      this.setMessage('looking');
       navigator.geolocation.watchPosition(this.locationAcquired.bind(this), this.locationFailed);
     } else {
-        /* geolocation IS NOT available */
+      document.getElementById('error').text = 'looking'
     } 
   }
 
@@ -69,9 +70,6 @@ export default class StepOne extends Step {
     on('#output', 'click', '.guess', (evt) => {
       const [longitude, latitude] = evt.target.dataset.loc.split(',');
       this.locationAcquired({coords: {latitude, longitude}})
-    });
-
-    document.getElementById('search').addEventListener('click', (evt) => {
     });
   }
 }
