@@ -13,7 +13,10 @@ export default class StepOneB extends Step {
     this.lng = lng;
     this.map = null;
     this.marker = null;
-    this.selectedLatLng = null;
+    this.selectedLatLng = {
+      lat: this.lat,
+      lng: this.lng
+    };
     this.mapEl = null;
   }
 
@@ -26,19 +29,19 @@ export default class StepOneB extends Step {
   render() {
     this.mapEl = document.getElementById('map');
     this.mapEl.classList.add('active');
-    this.map = this.map || leaflet.map('map').setView([this.lat, this.lng], 13);
+    this.map = this.map || leaflet.map('map').setView([this.lat, this.lng], 16);
     this.initTiles();
     this.el = this.el || document.getElementById('render');
     this.el.innerHTML = this.childHtml;
     this.bind();
+    this.setPin();
   }
 
   onMarkerMove(event) {
     this.selectedLatLng = event.latlng;
   }
 
-  onMapClick(event) {
-    this.selectedLatLng = Object.assign({}, event.latlng);
+  setPin() {
     if (this.marker) {
       this.marker.remove();
     }
@@ -47,6 +50,12 @@ export default class StepOneB extends Step {
     });
     this.marker.on('dragend', this.onMarkerMove.bind(this));
     this.marker.addTo(this.map);
+
+  }
+
+  onMapClick(event) {
+    this.selectedLatLng = Object.assign({}, event.latlng);
+    this.setPin();
   }
 
   selectLocation() {

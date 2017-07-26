@@ -1,5 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import builtins from 'rollup-plugin-node-builtins';
+import globals from 'rollup-plugin-node-globals';
 
 export default {
   entry: './src/index.js',
@@ -12,8 +14,9 @@ export default {
       main: true,  // Default: true
       browser: true,  // Default: false
       extensions: [ '.js', '.json' ],  // Default: ['.js']
-      preferBuiltins: false,  // Default: true
     }),
-    commonjs()
+    commonjs(),
+    globals(),
+    builtins(),
   ]
 };

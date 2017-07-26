@@ -25,7 +25,11 @@ class Survey {
   constructor() {
     this.steps = {};
     this.router = new Navigo('/', true);
-    this.state = {};
+    try {
+      this.state = localStorage.getItem('survey_state') ? JSON.parse(localStorage.getItem('survey_state')) : {};
+    } catch (err) {
+      this.state = {};
+    }
     this.router.on({
       'survey/:step': (params, query) => {
         this.renderStep(params, query)
@@ -38,6 +42,7 @@ class Survey {
 
   setState(newState) {
     this.state = Object.assign({}, this.state, newState);
+    localStorage.setItem('survey_state', JSON.stringify(this.state));
   }
 
   renderHome() {
