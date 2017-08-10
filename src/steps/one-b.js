@@ -22,7 +22,13 @@ export default class StepOneB extends Step {
 
   get childHtml() {
     const head = this.html;
-    const body = '<button id="button">done</button>';
+    const body = `
+    <div class="row-fluid">
+      <div class="col-sm-12">
+        <button id="button" class="splash-button">done</button>
+      </div>
+    </div>
+    `;
     return head + body;
   }
 
@@ -82,7 +88,7 @@ export default class StepOneB extends Step {
       attribution: ATTRIBUTION,
       maxZoom: 18,
       id: 'mapbox.streets',
-      accessToken: TOKEN 
+      accessToken: TOKEN
     }).addTo(this.map);
   }
 }

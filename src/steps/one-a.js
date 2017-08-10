@@ -16,9 +16,21 @@ export default class StepOne extends Step {
 
   get html() {
     const head = this.template(this.copy);
-    const body = `<button type="button" id="button" class="splash-button button">Get Current Location</button>
-      <input type="text" id="query"><button id="search">Search Location</button>
-      <div id="output"></div>
+    const body = `
+      <div class="row-fluid centerMe">
+        <input type="text" placeholder="Search Location" id="query"><button id="search">&#9906;</button>
+      </div>
+      <div class="row-fluid">
+        <p id="pg2or">or</p>
+      </div>
+      <div class="row-fluid centerMe">
+          <button type="button" id="button" class="splash-button button">Get Current Location</button>
+      </div>
+      <div class="row-fluid">
+        <div class="col-sm-12">
+          <div id="output"></div>
+        </div>
+      </div>
       `;
     return head + body;
   }
@@ -27,7 +39,7 @@ export default class StepOne extends Step {
     this.setMessage('');
     this.router.navigate(`/survey/1b?lat=${position.coords.latitude}&lng=${position.coords.longitude}`);
   }
-  
+
   locationFailed() {
     alert("Sorry, no position available.");
   }
@@ -38,7 +50,7 @@ export default class StepOne extends Step {
       navigator.geolocation.watchPosition(this.locationAcquired.bind(this), this.locationFailed);
     } else {
       document.getElementById('error').text = 'looking'
-    } 
+    }
   }
 
   geocode(input) {
@@ -46,7 +58,7 @@ export default class StepOne extends Step {
       country: 'ca',
       proximity: {
         latitude: 43.6573662,
-        longitude: -79.38125289999999 
+        longitude: -79.38125289999999
       }
     }).then((response) => {
       if (response.entity && response.entity.features.length) {
@@ -57,7 +69,7 @@ export default class StepOne extends Step {
       }
     })
   }
-  
+
   bind() {
     document.getElementById('button').addEventListener('click', (evt) => {
       this.getDeviceLocation();

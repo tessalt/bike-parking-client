@@ -11,12 +11,16 @@ export default class Step {
   template({name, title, heading, text}) {
     return (
       `
-      <div class="step ${name}">
-        <p class="step-title">${title}</p>
-        <h1 class="step-heading">${heading}</h1>
-        <p class="step-text">${text}</p>
-        <p id="error"></p>
-        <p id="message"></p>
+      <div class="row-fluid">
+        <div class="col-sm-8 col-sm-offset-2">
+          <div class="step ${name}">
+            <p class="step-title">${title}</p>
+            <h1 class="step-heading">${heading}</h1>
+            <p class="step-text">${text}</p>
+            <p id="error"></p>
+            <p id="message"></p>
+          </div>
+        </div>
       </div>
       `
     )

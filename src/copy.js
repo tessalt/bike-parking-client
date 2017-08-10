@@ -1,7 +1,7 @@
 const copy = {
   splash: {
-    title: 'bike parking',
-    heading: 'Help us get toronto moving',
+    title: 'BIKE PARKING',
+    heading: 'Help us get toronto moving.',
     text: 'This is a survey to help us understand where Toronto needs more bike parking'
   },
   '1a': {
