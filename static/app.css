@@ -1,21 +1,77 @@
-*{
+$grid: 10px;
+$white: white;
+$orange: #ffb238;
+$light-grey: #ffffff;
+$dark-grey: #6d676e;
+
+* {
   color: white;
   position: relative;
 }
 
-html, body, #map.active {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ffbb4f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
 }
-/*Step CSS*/
-.step{
+
+.app {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Defaults */
+h1, h2, h3, h4, h5, h6, p {
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* General */
+.button{
+  padding: $grid calc($grid * 5);
+  width: fit-content;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  background-color: $light-grey;
+  color: $dark-grey;
+  font-weight: 500;
+}
+
+/* Render */
+#render {
+  background-color: $orange;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Map */
+#map {
+  &.active {
+    height: 100%;
+  }
+}
+
+/*Step*/
+.Step {
   position: relative;
-}
-.step-title{
-  color: white;
-  margin-top: 20px;
+
+  &__heading {
+    margin-bottom: calc(3 * $grid);
+  }
+
+  &__title {
+    color: $white;
+    font-weight: 400;
+    margin-bottom: $grid;
+  }
 }
 
 .centerMe{
@@ -25,16 +81,10 @@ html, body, #map.active {
 }
 
 /*Splash Page*/
-.splash-button{
-  background-color: white;
-  border-radius: 15px;
-  border: none;
-  color: #515151;
-  position: relative;
-  padding: 5px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin: 0 auto;
+.Splash {
+  &__button {
+    margin-top: calc(5 * $grid);
+  }
 }
 
 /*Step 2*/
@@ -72,9 +122,6 @@ html, body, #map.active {
   margin-bottom: 10px;
 }
 
-#button{
-  margin-bottom: 10px;
-}
 .guess{
   margin-bottom: 5px;
 }

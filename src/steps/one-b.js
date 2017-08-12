@@ -26,6 +26,7 @@ export default class StepOneB extends Step {
     <div class="row-fluid">
       <div class="col-sm-12">
         <button id="button" class="splash-button">done</button>
+        <div id="map"></div>
       </div>
     </div>
     `;

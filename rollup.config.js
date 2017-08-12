@@ -6,6 +6,7 @@ import postcss from 'rollup-plugin-postcss';
 import simplevars from 'postcss-simple-vars';
 import nested from 'postcss-nested';
 import cssnext from 'postcss-cssnext';
+import csscalc from 'postcss-calc';
 import cssnano from 'cssnano';
 
 export default {
@@ -29,6 +30,7 @@ export default {
         nested(),
         cssnext({ warnForDuplicates: false }),
         cssnano(),
+        csscalc()
       ],
       extensions: [ '.css' ]
     })
