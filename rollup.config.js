@@ -3,6 +3,10 @@ import commonjs from 'rollup-plugin-commonjs';
 import builtins from 'rollup-plugin-node-builtins';
 import globals from 'rollup-plugin-node-globals';
 import postcss from 'rollup-plugin-postcss';
+import simplevars from 'postcss-simple-vars';
+import nested from 'postcss-nested';
+import cssnext from 'postcss-cssnext';
+import cssnano from 'cssnano';
 
 export default {
   entry: './src/index.js',
@@ -20,6 +24,12 @@ export default {
     globals(),
     builtins(),
     postcss({
+      plugins:[
+        simplevars(),
+        nested(),
+        cssnext({ warnForDuplicates: false }),
+        cssnano(),
+      ],
       extensions: [ '.css' ]
     })
   ]
