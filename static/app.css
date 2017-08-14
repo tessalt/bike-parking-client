@@ -1,11 +1,11 @@
 $grid: 10px;
 $white: white;
 $orange: #ffb238;
+$cream: #fdf7ee;
 $light-grey: #ffffff;
 $dark-grey: #6d676e;
 
 * {
-  color: white;
   position: relative;
 }
 
@@ -44,12 +44,30 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* Render */
 #render {
+  flex: 1;
+  display: flex;
+}
+
+/* View */
+.View {
   background-color: $orange;
   padding: 20px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &--light {
+    background-color: $cream;
+
+    .Step {
+      color: $dark-grey;
+
+      &__title {
+        color: $orange;
+      }
+    }
+  }
 }
 
 /* Map */
@@ -62,6 +80,7 @@ h1, h2, h3, h4, h5, h6, p {
 /*Step*/
 .Step {
   position: relative;
+  color: $white;
 
   &__heading {
     margin-bottom: calc(3 * $grid);

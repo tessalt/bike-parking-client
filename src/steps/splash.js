@@ -9,7 +9,7 @@ export default class Splash extends Step {
           Begin
         </button>
       </div>`;
-    return head + body;
+    return `<div class="View" />${head + body}</div>`;
   }
 
   bind() {

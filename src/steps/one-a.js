@@ -32,7 +32,7 @@ export default class StepOne extends Step {
         </div>
       </div>
       `;
-    return head + body;
+      return `<div class="View View--light" />${head + body}</div>`;
   }
 
   locationAcquired(position) {
