@@ -63,6 +63,6 @@ export default class StepTwo extends Step {
       return memo;
     }, '');
     choices = `<div class="choices">${choices}</div><button id="button">Done</button>`;
-    return head + choices;
+    return `<div class="View" />${head + choices}</div>`;
   }
 }

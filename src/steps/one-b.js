@@ -25,12 +25,12 @@ export default class StepOneB extends Step {
     const body = `
     <div class="row-fluid">
       <div class="col-sm-12">
-        <button id="button" class="splash-button">done</button>
+        <button id="button" class="button">done</button>
         <div id="map"></div>
       </div>
     </div>
     `;
-    return head + body;
+    return `<div class="View" />${head + body}</div>`;
   }
 
   render() {

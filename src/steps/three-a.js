@@ -8,7 +8,7 @@ export default class StepThreeA extends Step {
   get html() {
     const head = this.template(this.copy)
     const body = `<input type="datetime-local" id="date" /><br><button id="button">Done</button>`;
-    return head + body;
+    return `<div class="View" />${head + body}</div>`;
   }
 
   bind() {
