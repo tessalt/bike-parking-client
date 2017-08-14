@@ -15,8 +15,8 @@ export default class Step {
           <h3 class="Step__title">${title}</p>
           <h1 class="Step__heading">${heading}</h1>
           <p class="Step__text">${text}</p>
-          <p id="Step__error"></p>
-          <p id="Step__message"></p>
+          <p id="error" class="Step__error"></p>
+          <p id="message" class="Step__message"></p>
         </div>
       `
     )
