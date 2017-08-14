@@ -16,22 +16,16 @@ export default class StepOne extends Step {
 
   get html() {
     const head = this.template(this.copy);
-    const body = `
-      <div class="row-fluid centerMe">
-        <input type="text" placeholder="Search Location" id="query"><button id="search">&#9906;</button>
-      </div>
-      <div class="row-fluid">
-        <p id="pg2or">or</p>
-      </div>
-      <div class="row-fluid centerMe">
-          <button type="button" id="button" class="splash-button button">Get Current Location</button>
-      </div>
-      <div class="row-fluid">
-        <div class="col-sm-12">
-          <div id="output"></div>
+    const body = 
+      `<div class="StepOne" />
+        <div class="StepOne__search">
+          <input class="StepOne__search__input" type="text" placeholder="Search Location" id="query">
+          <button class="StepOne__search__button" id="search">&#9906;</button>
         </div>
-      </div>
-      `;
+        <p class="StepOne__or-divider">or</p>
+        <button type="button" id="button" class="button button--orange StepOne__button">Get Current Location</button>
+        <div id="output" class="StepOne__output"></div>
+      </div>`;
       return `<div class="View View--light" />${head + body}</div>`;
   }
 
