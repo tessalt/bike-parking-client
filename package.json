@@ -19,12 +19,17 @@
   },
   "devDependencies": {
     "concurrently": "^3.5.0",
+    "cssnano": "^3.10.0",
     "http-server": "^0.10.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-nested": "^2.1.1",
+    "postcss-simple-vars": "^4.0.0",
     "rollup": "^0.45.2",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-builtins": "^2.1.2",
     "rollup-plugin-node-globals": "^1.1.0",
     "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-postcss": "^0.5.4",
     "rollup-watch": "^4.3.1"
   }
 }

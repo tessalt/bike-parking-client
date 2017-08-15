@@ -9,6 +9,7 @@ import StepThreeB from './steps/three-b';
 import StepFour from './steps/four';
 import Complete from './steps/complete';
 import Step from './step';
+import '../static/app.css';
 
 const steps = {
   splash: Splash,

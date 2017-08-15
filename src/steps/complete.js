@@ -4,7 +4,7 @@ export default class Complete extends Step {
   get html() {
     const head = this.template(this.copy)
     const body = `<input type="email" id="email"><br><button id="button">Done</button>`;
-    return head + body;
+    return `<div class="View View--light" />${head + body}</div>`;
   }
 
   bind() {

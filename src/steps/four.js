@@ -4,7 +4,7 @@ export default class StepFour extends Step {
   get html() {
     const head = this.template(this.copy)
     const body = `<textarea id="comment"></textarea><br><button id="button">Done</button>`;
-    return head + body;
+    return `<div class="View View--light" />${head + body}</div>`;
   }
 
   bind() {

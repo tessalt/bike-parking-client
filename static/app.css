@@ -1,21 +1,101 @@
-*{
-  color: white;
+$grid: 10px;
+$white: #ffffff;
+$orange: #ffb238;
+$cream: #fdf7ee;
+$light-grey: #ececec;
+$dark-grey: #6d676e;
+
+* {
   position: relative;
 }
 
-html, body, #map.active {
+html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #ffbb4f;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  line-height: 1.5;
 }
-/*Step CSS*/
-.step{
+
+.app {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Defaults */
+h1, h2, h3, h4, h5, h6, p {
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+/* General */
+.button{
+  padding: $grid calc($grid * 4);
+  width: fit-content;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  background-color: $light-grey;
+  color: $dark-grey;
+  font-weight: 500;
+
+  &--orange {
+    background-color: $orange;
+    color: $white;
+  }
+}
+
+/* Render */
+#render {
+  flex: 1;
+  display: flex;
+}
+
+/* View */
+.View {
+  background-color: $orange;
+  padding: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &--light {
+    background-color: $cream;
+
+    .Step {
+      color: $dark-grey;
+
+      &__title {
+        color: $orange;
+      }
+    }
+  }
+}
+
+/* Map */
+#map {
+  &.active {
+      flex: 2;
+  }
+}
+
+/*Step*/
+.Step {
   position: relative;
-}
-.step-title{
-  color: white;
-  margin-top: 20px;
+  color: $white;
+
+  &__heading {
+    margin-bottom: calc(3 * $grid);
+  }
+
+  &__title {
+    color: $white;
+    font-weight: 400;
+    margin-bottom: $grid;
+  }
 }
 
 .centerMe{
@@ -25,56 +105,64 @@ html, body, #map.active {
 }
 
 /*Splash Page*/
-.splash-button{
-  background-color: white;
-  border-radius: 15px;
-  border: none;
-  color: #515151;
-  position: relative;
-  padding: 5px;
-  padding-left: 30px;
-  padding-right: 30px;
-  margin: 0 auto;
+.Splash {
+  &__button {
+    margin-top: calc(5 * $grid);
+  }
 }
 
-/*Step 2*/
+/* StepOne */
+.StepOne {
+  margin-top: calc(2 * $grid);
+  &__search {
+    &__input {
+      padding: $grid;
+      background-color: $white;
+      border: 1px solid $light-grey;
+      outline:none;
+      border-radius: 30px;
+      width: 100%;
+      box-sizing: border-box;
+      font-size: 18px;
+    }
 
-#query{
-  color: #515151;
-  border: none;
-  padding: 5px;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  padding-left: 15px;
-  outline:none;
-}
-#search{
-  background-color: white;
-  border: none;
-  outline:none;
-  /*border-top-right-radius: 50px;
-  border-bottom-right-radius: 50px;*/
-  border-radius: 50px;
-  left: -13px;
-  color: black;
-  width: 30px;
-  height: 30px;
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
+    &__button {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      position: absolute;
+      right: 0;
+      top: -10px;
+      font-size: 30px;
+    }
+  }
 
+  &__or-divider {
+    position: relative;
+    text-align: center;
+    color: $dark-grey;
+
+    span {
+      background-color: $cream;
+      padding: 0 5px;
+      z-index: 1;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $dark-grey;
+    }
+  }
 }
 
-#pg2or{
-  margin-top: 10px;
-  text-align: center;
-  margin-bottom: 10px;
-}
+/* StepTwo */
 
-#button{
-  margin-bottom: 10px;
-}
 .guess{
   margin-bottom: 5px;
 }
