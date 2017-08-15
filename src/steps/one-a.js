@@ -22,7 +22,7 @@ export default class StepOne extends Step {
           <input class="StepOne__search__input" type="text" placeholder="Search Location" id="query">
           <button class="StepOne__search__button" id="search">&#9906;</button>
         </div>
-        <p class="StepOne__or-divider">or</p>
+        <p class="StepOne__or-divider"><span>or</span></p>
         <button type="button" id="button" class="button button--orange StepOne__button">Get Current Location</button>
         <div id="output" class="StepOne__output"></div>
       </div>`;
