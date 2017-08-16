@@ -1,8 +1,10 @@
 $grid: 10px;
 $white: #ffffff;
 $orange: #ffb238;
+$hover-orange: #f3aa37;
 $cream: #fdf7ee;
 $light-grey: #ececec;
+$hover-grey: #dedede;
 $dark-grey: #6d676e;
 
 * {
@@ -40,10 +42,20 @@ h1, h2, h3, h4, h5, h6, p {
   background-color: $light-grey;
   color: $dark-grey;
   font-weight: 500;
+  outline: none;
+  cursor: pointer;
 
   &--orange {
     background-color: $orange;
     color: $white;
+
+    &:hover, &:active {
+      background-color: $hover-orange !important;
+    }
+  }
+
+  &:hover, &:active {
+    background-color: $hover-grey;
   }
 }
 
@@ -114,6 +126,9 @@ h1, h2, h3, h4, h5, h6, p {
 /* StepOne */
 .StepOne {
   margin-top: calc(2 * $grid);
+  display: flex;
+  flex-direction: column;
+
   &__search {
     &__input {
       padding: $grid;
@@ -132,9 +147,11 @@ h1, h2, h3, h4, h5, h6, p {
       -o-transform: rotate(-45deg);
       transform: rotate(-45deg);
       position: absolute;
-      right: 0;
-      top: -10px;
+      right: 10px;
+      top: -4px;
       font-size: 30px;
+      background: none;
+      border: none;
     }
   }
 
@@ -142,6 +159,7 @@ h1, h2, h3, h4, h5, h6, p {
     position: relative;
     text-align: center;
     color: $dark-grey;
+    margin: calc(2 * $grid) 0;
 
     span {
       background-color: $cream;
@@ -158,6 +176,10 @@ h1, h2, h3, h4, h5, h6, p {
       height: 1px;
       background-color: $dark-grey;
     }
+  }
+
+  &__button {
+    margin: 0 auto;
   }
 }
 
