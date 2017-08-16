@@ -131,7 +131,7 @@ h1, h2, h3, h4, h5, h6, p {
 
   &__search {
     &__input {
-      padding: $grid;
+      padding: $grid 45px $grid calc(2 * $grid);
       background-color: $white;
       border: 1px solid $light-grey;
       outline:none;
